@@ -53,9 +53,11 @@ class CommentsController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Comments $comments)
+    public function update(Request $request, $id)
     {
-        //
+        $comment = Comments::findOrFail($id);
+        $comment->update($request->all());
+        return response()->json($comment);
     }
 
     /**
