@@ -12,7 +12,8 @@ class CommentsController extends Controller
      */
     public function index()
     {
-        //
+        $data =  Comments::all();
+        return $data;
     }
 
     /**
@@ -28,7 +29,9 @@ class CommentsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        $user = Comments::create($data);
+        return response()->json($user);
     }
 
     /**
@@ -58,8 +61,10 @@ class CommentsController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Comments $comments)
+    public function destroy($id)
     {
-        //
+        $comment = Comments::findOrFail($id);
+        $comment->delete();
+        return response()->json(['message' => 'Comment deleted successfully']);
     }
 }
