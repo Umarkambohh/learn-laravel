@@ -3,25 +3,20 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class UserController extends Controller
 {
     public function index()
     {
-        $data = [
-            ['name' => 'athar', 'email' => 'example@gmail.com'],
-            ['name' => 'khan', 'email' => 'example@gmail.com'],
-            ['name' => 'example', 'email' => 'example@gmail.com'],
-            ['name' => 'athar', 'email' => 'example@gmail.com'],
-            ['name' => 'athar', 'email' => 'example@gmail.com'],
-            ['name' => 'athar', 'email' => 'example@gmail.com'],
-        ];
-        return response()->json($data);
+        $data =  User::all();
+        return $data;
     }
 
     public function store(Request $request)
     {
         $data = $request->all();
-        return response()->json($data);
+        $user = User::create($data);
+        return response()->json($user);
     }
 }

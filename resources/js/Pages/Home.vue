@@ -2,10 +2,12 @@
   <app-layout>
     <form @submit.prevent="submitForm">
       <label for="name">Name:</label>
-      <input type="text" id="name" v-model="form.name">
+      <input type="text" id="name" v-model="formData.name">
 
       <label for="email">Email:</label>
-      <input type="email" id="email" v-model="form.email">
+      <input type="email" id="email" v-model="formData.email">
+      <label>password:</label>
+      <input v-model="formData.password">
 
       <button type="submit">Submit</button>
     </form>
@@ -16,22 +18,28 @@
       <span>{{ user.email }}</span>
       <hr>
     </div>
+
+    <Comment />
   </app-layout>
 </template>
 
 <script setup>
 import { ref } from 'vue';
 import axios from 'axios'
+import Comment from './Components/Comment.vue';
 
-const form = ref({
+
+const formData = ref({
   name: '',
   email: '',
+  password: '',
 });
 
 const users = ref([]);
 
 const submitForm = () => {
-  axios.post('/api/user', form)
+  console.log(formData.value);
+  axios.post('/api/user', formData.value)
     .then((res) => {
       console.log(res.data);
     })

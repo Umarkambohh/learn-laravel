@@ -1,9 +1,9 @@
 <template>
     <Header />
     <slot></slot>
-    <footer>
+    <!-- <footer>
         footer
-    </footer>
+    </footer> -->
 </template>
 
 <script setup>
