@@ -53,9 +53,9 @@ class CommentsController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Comments $comment)
     {
-        $comment = Comments::findOrFail($id);
+        return response()->json($comment);
         $comment->update($request->all());
         return response()->json($comment);
     }
@@ -63,9 +63,8 @@ class CommentsController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy($id)
+    public function destroy(Comments $comment)
     {
-        $comment = Comments::findOrFail($id);
         $comment->delete();
         return response()->json(['message' => 'Comment deleted successfully']);
     }
