@@ -4,7 +4,6 @@ import { createApp, h } from "vue";
 import { createInertiaApp, Link } from "@inertiajs/vue3";
 import ElementPlus from "element-plus";
 import "element-plus/dist/index.css";
-import '../css/app.css'
 import "../scss/style.scss";
 
 createInertiaApp({

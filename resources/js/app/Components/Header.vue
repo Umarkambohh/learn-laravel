@@ -1,41 +1,60 @@
 <template>
-  <div class="bg-kodama sticky top-0 w-full z-10">
-    <div class="container flex justify-between py-2 font-montserrat font-semibold">
-      <el-select class="mr-2" v-model="flag" size="large" style="width: 140px">
-        <el-option v-for="option in languageOptions" :key="option.value" :label="option.label" :value="option.value">
-          <template #default="scope">
-            <div class="flex">
-              <img :src="option.image" class="option-image" width="25px" />
-              <span class="pl-3">{{ option.label }}</span>
-            </div>
-          </template>
-        </el-option>
-      </el-select>
+  <header class="bg-blue-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-16">
+        <div class="flex items-center">
+          <div class="flex-shrink-0">
+            <img class="h-8 w-auto"
+              src="https://www.freepnglogos.com/uploads/google-logo-png/google-logo-png-google-sva-scholarship-20.png"
+              alt="=">
+          </div>
+          <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
+            <Link href="/"
+              class="border-blue-500 text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+            home
+            </Link>
+            <Link href="/about"
+              class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+            about
+            </Link>
+            <Link href="/"
+              class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+            contact
+            </Link>
+            <Link href="/"
+              class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+            products
+            </Link>
 
-      <div class="flex">
-        <button
-          class="bg-denim hover:bg-denim-darken text-white font-bold font-montserrat px-3 sm:px-7 text-sm rounded-bl-20 transition">
-          Feedback
-        </button>
-        <button class="bg-white flex items-center justify-center w-10 h-10 ms-2 rounded-full lg:hidden">
-          <Search class=" text-gray" />
-        </button>
-
-        <div class="ms-4 hidden lg:flex">
-          <SearchBar style="width: 400px;" />
+          </div>
+        </div>
+        <div class="hidden sm:ml-6 sm:flex sm:items-center">
+          <el-input class="mr-3 h-10" style="width: 240px" placeholder="Please input" />
+          <div class="relative">
+            <el-select class="mr-2" v-model="flag" size="large" style="width: 140px">
+              <el-option v-for="option in languageOptions" :key="option.value" :label="option.label"
+                :value="option.value">
+                <template #default="scope">
+                  <div class="flex">
+                    <img :src="option.image" class="option-image" width="25px" />
+                    <span class="pl-3">{{ option.label }}</span>
+                  </div>
+                </template>
+              </el-option>
+            </el-select>
+          </div>
+          <button class="px-4 py-2 bg-blue-500 text-white text-sm font-medium rounded-md" @click="$emit('openModal')">Feedback</button>
         </div>
       </div>
     </div>
-  </div>
-  <Link href="/" class="mt-100">home</Link> <br>
-  <Link href="/about">about</Link>
-  <el-button type="primary">Primary</el-button>
+  </header>
 </template>
 
 <script setup>
-import SearchBar from "@/app/Components/SearchBar.vue";
+import SearchBar from "@/App/Components/SearchBar.vue";
 import { ref } from "vue";
-import { Home, Calendar, School, ChevronRight, CircleAlert, Siren, EllipsisVertical, Search } from 'lucide-vue-next';
+defineEmits(['openModal'])
+
 const flag = ref('de');
 
 const languageOptions = ref([
