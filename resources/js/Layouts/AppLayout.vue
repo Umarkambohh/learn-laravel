@@ -9,8 +9,8 @@
 
 <script setup>
 import { ref } from "vue";
-import Header from '@/App/Components/Header.vue';
-import FeedbackModel from '@/App/Components/FeedbackModel.vue';
+import Header from '@/Components/App/Header.vue';
+import FeedbackModel from '@/Components/App/FeedbackModel.vue';
 
 const showModal = ref(false);
 

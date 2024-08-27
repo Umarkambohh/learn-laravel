@@ -25,7 +25,6 @@
               class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
             products
             </Link>
-
           </div>
         </div>
         <div class="hidden sm:ml-6 sm:flex sm:items-center">
@@ -43,7 +42,8 @@
               </el-option>
             </el-select>
           </div>
-          <button class="px-4 py-2 bg-blue-500 text-white text-sm font-medium rounded-md" @click="$emit('openModal')">Feedback</button>
+          <button class="px-4 py-2 bg-blue-500 text-white text-sm font-medium rounded-md"
+            @click="$emit('openModal')">Feedback</button>
         </div>
       </div>
     </div>
@@ -51,7 +51,7 @@
 </template>
 
 <script setup>
-import SearchBar from "@/App/Components/SearchBar.vue";
+import SearchBar from "@/Components/App/SearchBar.vue";
 import { ref } from "vue";
 defineEmits(['openModal'])
 

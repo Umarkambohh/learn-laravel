@@ -6,9 +6,15 @@ use App\Http\Controllers\UserController;
 use Inertia\Inertia;
 
 Route::get('/', function () {
-  return Inertia::render('Home');
+  return Inertia::render('App/Home');
 });
-Route::inertia('/about', 'About', ['user' => 'John']);
+Route::inertia('/about', 'App/About', ['user' => 'John']);
+Route::inertia('/product-details', 'App/ProductDetails');
+
+// Dashboard Layouts
+Route::get('/dashboard/home', function () {
+  return Inertia::render('Dashboard/Home');
+});
 
 Route::prefix('api')->group(function () {
   Route::post('user', [UserController::class, 'store']);

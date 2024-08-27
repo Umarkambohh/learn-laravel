@@ -20,7 +20,7 @@
 
 <script setup>
 import { ref } from 'vue';
-import Banner from "@/App/Components/Banner.vue";
-import ProductCard from "@/App/Components/ProductCard.vue";
-import Card from "@/App/Components/Card.vue";
+import Banner from "@/Components/App/Banner.vue";
+import ProductCard from "@/Components/App/ProductCard.vue";
+import Card from "@/Components/App/Card.vue";
 </script>

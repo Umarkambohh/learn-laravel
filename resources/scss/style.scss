@@ -1,3 +1,11 @@
 @import './variables';
 @import './common';
-@import './components/header';
+
+// App components
+@import './components/app/header';
+
+// Dashboad components
+@import './components/dashboard/sidebar';
+
+// Dashboad section
+@import './sections/dashboard/dashboard';

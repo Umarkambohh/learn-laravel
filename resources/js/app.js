@@ -3,6 +3,7 @@ import AppLayout from "@/Layouts/AppLayout.vue";
 import { createApp, h } from "vue";
 import { createInertiaApp, Link } from "@inertiajs/vue3";
 import ElementPlus from "element-plus";
+import vuetify from './plugins/vuetify' // Import the Vuetify plugin
 import "element-plus/dist/index.css";
 import "../scss/style.scss";
 
@@ -20,6 +21,7 @@ createInertiaApp({
         app.component("Link", Link);
         app.use(plugin);
         app.use(ElementPlus);
+        app.use(vuetify) // Use Vuetify in your app
         app.mount(el);
     },
 });
