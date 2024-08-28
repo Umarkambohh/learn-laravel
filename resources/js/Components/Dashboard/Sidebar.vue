@@ -2,10 +2,10 @@
   <div class="sidebar">
     <ul>
       <li>
-        <Link href="/dashboard/home">Dashboard</Link>
+        <Link href="/dashboard/home">Home</Link>
       </li>
       <li>
-        <Link href="/">Profile</Link>
+        <Link href="/dashboard/products">Products</Link>
       </li>
       <li>
         <Link href="/">Settings</Link>

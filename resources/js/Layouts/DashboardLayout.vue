@@ -2,7 +2,7 @@
   <div class="dashboard-sidebar">
     <Sidebar />
     <div class="p-5 bg-kodama w-dvw">
-      <slot  />
+      <slot />
     </div>
   </div>
 </template>

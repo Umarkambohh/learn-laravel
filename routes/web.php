@@ -15,6 +15,12 @@ Route::inertia('/product-details', 'App/ProductDetails');
 Route::get('/dashboard/home', function () {
   return Inertia::render('Dashboard/Home');
 });
+Route::get('/dashboard/products', function () {
+  return Inertia::render('Dashboard/Products');
+});
+Route::get('/dashboard/products-update', function () {
+  return Inertia::render('Dashboard/ProductsUpdate');
+});
 
 Route::prefix('api')->group(function () {
   Route::post('user', [UserController::class, 'store']);
