@@ -10,5 +10,20 @@
 </template>
 
 <script setup>
+import axios from "axios";
 import business from "/resources/images/banners/small-business-website.png";
+
+const bannerData = ref([]);
+
+// ]const getData = () => {
+//   axios.get('')
+//     .then((res) => {
+//       bannerData.value = res.data
+//     })
+//     .catch((error) => {
+//       console.log(error);
+//     });
+// }
+
+getData()
 </script>

@@ -2,7 +2,6 @@
   <DashboardLayout>
     <V-container>
       <v-row>
-        <!-- First Column: File Input -->
         <v-col cols="12" md="6">
           <v-card class="h-100">
             <v-card-title>Upload Image</v-card-title>
@@ -11,14 +10,13 @@
             </v-card-item>
           </v-card>
         </v-col>
-
         <v-col cols="12" md="6">
           <v-card>
             <v-card-title>Upload Content</v-card-title>
             <v-card-item>
-              <v-text-field label="Heading" variant="outlined"></v-text-field>
-              <v-text-field label="Paragraph" variant="outlined"></v-text-field>
-              <VBtn class="mt-5 float-end" color="primary">Update</VBtn>
+              <v-text-field v-model="formData.heading" label="Heading" variant="outlined"></v-text-field>
+              <v-text-field v-model="formData.desc" label="Paragraph" variant="outlined"></v-text-field>
+              <VBtn class="mt-5 float-end" color="primary" @click="submitForm">Update</VBtn>
             </v-card-item>
           </v-card>
         </v-col>
@@ -29,4 +27,22 @@
 
 <script setup>
 import DashboardLayout from '@/Layouts/DashboardLayout.vue';
+import axios from "axios";
+import { ref } from 'vue';
+
+const formData = ref({
+  heading: '',
+  desc: '',
+});
+
+const submitForm = () => {
+  axios.post('/api/banners', formData.value)
+    .then((res) => {
+      console.log(res);
+
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+}
 </script>
