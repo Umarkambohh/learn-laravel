@@ -1,12 +1,15 @@
 <template>
-  <DashboardLayout>
+  <dashboard-layout>
     <V-container>
       <v-row>
         <v-col cols="12" md="6">
           <v-card class="h-100">
             <v-card-title>Upload Image</v-card-title>
             <v-card-item>
-              <v-file-input variant="outlined" label="Upload File" />
+              <v-file-input @change="onFileChange" variant="outlined" label="Upload File" />
+              <v-text-field v-model="bannerData.heading" label="Heading" variant="outlined"></v-text-field>
+              <v-text-field v-model="bannerData.desc" label="Paragraph" variant="outlined"></v-text-field>
+              <VBtn class="mt-5 float-end" color="primary" @click="submitForm">Update</VBtn>
             </v-card-item>
           </v-card>
         </v-col>
@@ -14,35 +17,43 @@
           <v-card>
             <v-card-title>Upload Content</v-card-title>
             <v-card-item>
-              <v-text-field v-model="formData.heading" label="Heading" variant="outlined"></v-text-field>
-              <v-text-field v-model="formData.desc" label="Paragraph" variant="outlined"></v-text-field>
-              <VBtn class="mt-5 float-end" color="primary" @click="submitForm">Update</VBtn>
+
             </v-card-item>
           </v-card>
         </v-col>
       </v-row>
     </V-container>
-  </DashboardLayout>
+  </dashboard-layout>
 </template>
 
 <script setup>
-import DashboardLayout from '@/Layouts/DashboardLayout.vue';
 import axios from "axios";
 import { ref } from 'vue';
 
-const formData = ref({
+const bannerData = ref({
+  img: null,
   heading: '',
   desc: '',
 });
 
-const submitForm = () => {
-  axios.post('/api/banners', formData.value)
-    .then((res) => {
-      console.log(res);
+const onFileChange = (event) => {
+  const file = event.target.files[0];
+  if (file) {
+    bannerData.value.img = file;
+  }
+};
 
+const submitForm = () => {
+  axios.post('/api/banners', bannerData.value, {
+    headers: {
+      'Content-Type': 'multipart/form-data',
+    },
+  })
+    .then((response) => {
+      console.log('Success:', response.data);
     })
     .catch((error) => {
-      console.log(error);
+      console.error('Error:', error);
     });
 }
 </script>

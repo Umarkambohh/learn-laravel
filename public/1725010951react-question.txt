@@ -1,0 +1,13 @@
+Rect			| vue 
+useEffect		  onMount,onUpdate,watch   
+
+useMemo			| computed property
+
+useState		| ref()
+
+useState		  v-model
+
+
+YouTube: Yoshita Jain
+
+mutables and unmutables

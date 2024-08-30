@@ -10,13 +10,14 @@ Route::get('/', function () {
   return Inertia::render('App/Home');
 });
 Route::inertia('/about', 'App/About', ['user' => 'John']);
+Route::inertia('/contact', 'App/Contact');
 Route::inertia('/product-details', 'App/ProductDetails');
 
 // Dashboard Layouts
 Route::get('/dashboard/home', function () {
   return Inertia::render('Dashboard/Home');
 });
-Route::get('/dashboard/products', function () { 
+Route::get('/dashboard/products', function () {
   return Inertia::render('Dashboard/Products');
 });
 Route::get('/dashboard/products-update', function () {

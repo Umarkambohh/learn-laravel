@@ -12,6 +12,7 @@
 <script setup>
 import axios from "axios";
 import business from "/resources/images/banners/small-business-website.png";
+import { ref } from 'vue';
 
 const bannerData = ref([]);
 
@@ -25,5 +26,5 @@ const bannerData = ref([]);
 //     });
 // }
 
-getData()
+// getData()
 </script>
